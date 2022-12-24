@@ -3,10 +3,17 @@ console.log('popup loaded')
 // window.innerWidth = 500;
 
 document.getElementById('summarize-button').addEventListener('click', function () {
+
+    // Show the loading animation
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('spinner').classList.add('visible');
+
     // Send a message to the content script requesting the rephrasing of the selected text
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, { type: 'summarize' });
     });
+
+
 });
 
 // Listen for a message from the background script
@@ -17,6 +24,11 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         // Update the output element with the rendered HTML
         document.getElementById('output').innerHTML = message.text;
         document.getElementById('copyButton').classList.add('visible');
+        document.getElementById('output').classList.add('visible');
+
+        // Hide the loading animation
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('spinner').classList.remove('visible');
     }
 });
 

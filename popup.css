@@ -1,3 +1,10 @@
+/* Style the popup window */
+html,
+body {
+  /* Set the background color of the popup window */
+  background-color: rgb(164, 179, 198);
+}
+
 #output-container {
   position: relative;
   width: 500px;
@@ -12,9 +19,17 @@
   padding: 16px;
   border: 1px solid gray;
   border-radius: 8px;
-  width: 80%;
+  /* width: 80%; */
   height: 100%;
   white-space: pre-wrap;
+  /* Add a shadow */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  background: #e6e6e6;
+}
+
+#output.visible {
+  visibility: visible;
 }
 
 #copyButton {
@@ -39,4 +54,75 @@
   /* Style the copy icon inside the copy button */
   width: 16px;
   height: 16px;
+}
+
+/* Style the summarize button */
+#summarize-button {
+  /* Add a claymophic appearance */
+  background: #e6e6e6;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+  color: #333333;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  padding: 8px 16px;
+  transition: background 0.2s, border 0.2s;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* Center the button on the page */
+  display: block;
+  margin: 0 auto;
+}
+
+#summarize-button:hover {
+  /* Change the background and border color on hover */
+  background: #cccccc;
+  border-color: #999999;
+}
+
+#summarize-button:active {
+  /* Change the background and border color when clicked */
+  background: #999999;
+  border-color: #666666;
+}
+
+/* Style the loading animation */
+#loading {
+  /* Set the size and position of the loading animation */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  visibility: hidden;
+}
+
+/* Style the loading spinner */
+#loading.spinner {
+  /* Set the size and color of the spinner */
+  width: 24px;
+  height: 24px;
+  border: 3px solid #333333;
+  border-radius: 50%;
+  border-top-color: #cccccc;
+  animation: spin 1s linear infinite;
+  visibility: hidden;
+}
+
+#spinner {
+  visibility: hidden;
+  margin: auto;
+}
+
+#spinner.visible {
+  visibility: visible;
+}
+
+/* Animate the spinning of the spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
