@@ -2,7 +2,7 @@
 
 A Chrome extension that allows users to select text and summarize it using OpenAI's GPT-3 API. This was written using Chat-GPT's guidance.
 
-![](screenshot.png)
+![](screenshot.gif)
 
 ## Features
 
