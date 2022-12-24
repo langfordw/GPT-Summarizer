@@ -13,12 +13,11 @@ document.getElementById('summarize-button').addEventListener('click', function (
         chrome.tabs.sendMessage(tabs[0].id, { type: 'summarize' });
     });
 
-
 });
 
 // Listen for a message from the background script
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    console.log("popup received:",message);
+    console.log("popup received:", message);
     // If the message is the summarized text
     if (message.type === 'summarizedText') {
         // Update the output element with the rendered HTML
@@ -37,17 +36,17 @@ const copyButton = document.getElementById('copyButton');
 const summaryElement = document.getElementById('output');
 
 // Add an event listener for the click event on the copy button
-copyButton.addEventListener('click', function() {
+copyButton.addEventListener('click', function () {
     // Select the contents of the summary textarea
     // summaryElement.innherHTML().select();
     summaryElement
-  
+
     // Copy the selected text to the clipboard using the Clipboard API
     navigator.clipboard.writeText(summaryElement.innerHTML)
-      .then(function() {
-        console.log('Summary copied to clipboard');
-      })
-      .catch(function(error) {
-        console.error('Error copying summary to clipboard:', error);
-      });
-  });
+        .then(function () {
+            console.log('Summary copied to clipboard');
+        })
+        .catch(function (error) {
+            console.error('Error copying summary to clipboard:', error);
+        });
+});

@@ -100,7 +100,7 @@ body {
 }
 
 /* Style the loading spinner */
-#loading.spinner {
+#loading .spinner {
   /* Set the size and color of the spinner */
   width: 24px;
   height: 24px;
