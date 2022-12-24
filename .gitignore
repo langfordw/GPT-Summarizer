@@ -1,0 +1,15 @@
+# Build artifacts
+*.zip
+*.crx
+
+# User-specific files
+.DS_Store
+Thumbs.db
+*.log
+
+# Compiled or minified files
+*.min.js
+*.min.css
+
+# Secret Key
+config.json
